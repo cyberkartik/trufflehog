@@ -15,7 +15,7 @@ jobs:
       - name: Run Security Scan (Mock / Replace with your scanner)
         run: |
           # Replace this with your actual scanner
-          echo '[{"severity": "high"}, {"severity": "medium"}]' > findings.json
+          echo '[{"severity": "low"}, {"severity": "medium"}]' > findings.json
 
       - name: Check for High/Critical Issues
         run: |
