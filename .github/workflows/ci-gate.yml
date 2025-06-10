@@ -1,0 +1,22 @@
+name: CI Gating for High/Critical Issues
+
+on:
+  pull_request:
+    branches:
+      - main  # or your default branch
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Security Scan (Mock / Replace with your scanner)
+        run: |
+          # Replace this with your actual scanner
+          echo '[{"severity": "high"}, {"severity": "medium"}]' > findings.json
+
+      - name: Check for High/Critical Issues
+        run: |
+          python3 scripts/severity_check.py findings.json
